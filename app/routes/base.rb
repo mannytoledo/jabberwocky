@@ -5,7 +5,6 @@ module Jabberwocky
         set :views, 'app/views'
         set :root, File.expand_path('../../../', __FILE__)
         set :erb,
-            escape_html: true,
             layout: :default,
             layout_options: { views: 'app/views/layouts' }
 
