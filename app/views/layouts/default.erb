@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Jabberwocky</title>
+
+  <link rel="stylesheet" type="text/css" href="<%= asset_path 'styles.css' %>">
+
+  <%= yield_content :head %>
+</head>
+<body>
+  <%= yield %>
+
+  <script src="<%= asset_path 'commonjs.js' %>"></script>
+  <script src="<%= asset_path 'main.js' %>"></script>
+</body>
+</html>
