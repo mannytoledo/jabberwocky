@@ -1,4 +1,9 @@
-$header-color: hsla(195, 75%, 45%, 1.0);
+// ---- HEADER ----
+$header-color-top: hsla(195, 75%, 45%, 1.0);
+$header-color-bottom: hsla(201, 72%, 44%, 1.0);
+$header-text: hsla(193, 40%, 82%, 1.0);
+$header-text-active: hsla(40, 100%, 99%, 1.0);
+$header-input-color: hsla(197, 81%, 36%, 1.0);
 
-$main-gradient: hsla(0, 0, 93%, 1.0);
-$secondary-gradient: hsla(0, 0, 94%, 1.0);
+// ---- BODY ----
+$body-color: hsla(0, 0, 98%, 1.0);

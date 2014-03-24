@@ -2,8 +2,6 @@ source 'https://rubygems.org'
 ruby '2.0.0'
 
 gem 'sinatra', require: 'sinatra/base'
-gem 'sinatra-contrib', github: 'maccman/sinatra-contrib'
-gem 'rack-standards'
 gem 'unicorn'
 gem 'erubis'
 gem 'i18n'
@@ -11,6 +9,8 @@ gem 'activesupport'
 gem 'rake'
 gem 'builder'
 gem 'json', '~> 1.7.7'
+
+gem 'omniauth-github'
 
 # Assets
 gem 'sprockets'
@@ -23,7 +23,6 @@ gem 'coffee-script'
 gem 'sass'
 gem 'bourbon'
 gem 'neat'
-gem 'eco'
 gem 'dalli'
 gem 'memcachier'
 
@@ -33,9 +32,11 @@ gem 'sinatra-sequel'
 gem 'pg'
 
 group :development do
-  gem 'shotgun'
+  gem 'rb-fsevent'
+  gem 'rerun'
   gem 'thin'
   gem 'debugger', require: 'ruby-debug'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'pry'
 end

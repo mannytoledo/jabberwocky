@@ -4,8 +4,10 @@ module Jabberwocky
       configure do
         set :views, 'app/views'
         set :root, File.expand_path('../../../', __FILE__)
+
         disable :method_override
         disable :protection
+
         enable :static
       end
 
@@ -14,16 +16,16 @@ module Jabberwocky
         public_dir = File.expand_path(public_dir)
 
         path = File.expand_path(public_dir + unescape(request.path_info))
-        return unless path.start_with?(public_dir) and File.file?(path)
+        return unless path.start_with?(public_dir) && File.file?(path)
 
         env['sinatra.static_file'] = path
 
         unless settings.development? || settings.test?
-          expires 1.year.to_i, :public, :max_age => 31536000
+          expires 1.year.to_i, :public, max_age: 31_536_000
           headers 'Date' => Time.current.httpdate
         end
 
-        send_file path, :disposition => nil
+        send_file path, disposition: nil
       end
     end
   end

@@ -1,9 +1,14 @@
+require_relative '../helpers'
+require_relative '../extensions'
+
 module Jabberwocky
   module Routes
     class Base < Sinatra::Application
       configure do
         set :views, 'app/views'
         set :root, File.expand_path('../../../', __FILE__)
+
+        set :inline_templates, true
         set :erb,
             layout: :default,
             layout_options: { views: 'app/views/layouts' }
@@ -15,10 +20,10 @@ module Jabberwocky
         disable :static
       end
 
-      register Extensions::Assets
+      register Jabberwocky::Extensions::Assets
+      register Jabberwocky::Extensions::Auth
 
       helpers Jabberwocky::Helpers
-      helpers Sinatra::ContentFor
     end
   end
 end

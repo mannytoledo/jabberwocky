@@ -6,26 +6,30 @@
 
   <link rel="stylesheet" type="text/css" href="<%= asset_path 'normalize.css' %>">
   <link rel="stylesheet" type="text/css" href="<%= asset_path 'styles.css' %>">
-
-  <%= yield_content :head %>
 </head>
 <body>
   <header>
     <h1>Jabberwocky</h1>
 
-    <input type="search" placeholder="Search">
+    <div class="command-bar">
+      <input type="search" placeholder="Search">
 
-    <nav>
-      <ul>
-        <li class="active">Activity</li>
-        <li>Team</li>
-        <li>Calendar</li>
-      </ul>
-    </nav>
+      <nav>
+        <ul>
+          <li class="active">Activity</li>
+          <li>Team</li>
+          <li>Calendar</li>
+        </ul>
+      </nav>
+    </div>
 
     <ul class="options">
-      <li>Settings</li>
-      <li>Logout</li>
+      <% if !current_user? %>
+        <li><a href="/auth/github">Login with GitHub</a></li>
+      <% else %>
+        <li><%= current_user.username %></li>
+        <li><a href="/logout">Logout</a></li>
+      <% end %>
     </ul>
   </header>
 
